@@ -1,14 +1,26 @@
 const myLibrary = []
 
-function Book(name, author) {
+function Book(name, author, pages, haveRead) {
     this.name = name
     this.author = author
+    this.pages = pages
+    this.haveRead = haveRead
 }
 
-function addBookToLibrary(name, author) {
-    myLibrary.push(new Book(name, author))
+function addBookToLibrary(name, author, pages, haveRead) {
+    myLibrary.push(new Book(name, author, pages, haveRead))
+}
+
+addBookToLibrary('duckling', 'James', 30, true)
+addBookToLibrary('cat', 'Richard', 67, true)
+addBookToLibrary('frog on a log', 'Harper', 119, false)
+
+function displayBooks() {
+    
 }
 
 
-// addBookToLibrary('duckling', 'james')
-// console.log(myLibrary)
+
+
+
+console.log(myLibrary)
