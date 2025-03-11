@@ -19,10 +19,10 @@ header {
 }
 
 main {
-
+    background-color: rgb(225, 159, 60);
 }
 
-main .book-container {
+main .books-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-auto-rows: 150px;
