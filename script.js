@@ -20,33 +20,22 @@ const bookContainer = document.querySelector('.books-container')
 function displayBooks() {
     myLibrary.map((item, index, array) => {
         const newBookCard = document.createElement('div')
-        console.log(newBookCard)
-
-        // const removeSpaces = item.name.replace(/\s+/g, '-').toLowerCase()
-        // `${removeSpaces}-card`
         newBookCard.classList.add('book-card')
-        newBookCard.textContent = 'from the map'
+
+        const name = document.createElement('p')
+        name.classList.add('name')
+        name.textContent = `Name: ${item.name}`
+
+        const author = document.createElement('p')
+        author.classList.add('author')
+        author.textContent = `Author: ${item.author}`
+
+        newBookCard.appendChild(name)
+        newBookCard.appendChild(author)
         bookContainer.appendChild(newBookCard)
         return item
     })
-
-
-    // for(let i=1; i<=myLibrary.length; i++) {
-    //     const newBookCard = document.createElement('div')
-    //     // console.log(newBookCard)
-
-    //     // const removeSpaces = item.name.replace(/\s+/g, '-').toLowerCase()
-    //     // `${removeSpaces}-card`
-    //     newBookCard.classList.add('book-card')
-    //     newBookCard.textContent = 'from the map'
-    //     bookContainer.appendChild(newBookCard)
-    // }
 }
-
-
-
-
-
 
 
 // console.log(myLibrary)
@@ -62,3 +51,16 @@ displayBooks()
     // name.textContent = item.name
     // name.appendChild(newBookCard)
     // console.log(item.name)
+
+
+
+    // for(let i=1; i<=myLibrary.length; i++) {
+    //     const newBookCard = document.createElement('div')
+    //     // console.log(newBookCard)
+
+    //     // const removeSpaces = item.name.replace(/\s+/g, '-').toLowerCase()
+    //     // `${removeSpaces}-card`
+    //     newBookCard.classList.add('book-card')
+    //     newBookCard.textContent = 'from the map'
+    //     bookContainer.appendChild(newBookCard)
+    // }
