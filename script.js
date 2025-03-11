@@ -24,14 +24,24 @@ function displayBooks() {
 
         const name = document.createElement('p')
         name.classList.add('name')
-        name.textContent = `Name: ${item.name}`
+        name.textContent = `${item.name}`
 
         const author = document.createElement('p')
         author.classList.add('author')
-        author.textContent = `Author: ${item.author}`
+        author.textContent = `${item.author}`
+
+        const pages = document.createElement('p')
+        pages.classList.add('pages')
+        pages.textContent = `${item.pages} pages`
+
+        const haveRead = document.createElement('p')
+        haveRead.classList.add('have-read')
+        haveRead.textContent = `Have read: ${item.haveRead}`
 
         newBookCard.appendChild(name)
         newBookCard.appendChild(author)
+        newBookCard.appendChild(pages)
+        newBookCard.appendChild(haveRead)
         bookContainer.appendChild(newBookCard)
         return item
     })
