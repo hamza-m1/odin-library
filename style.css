@@ -22,6 +22,12 @@ main {
     background-color: rgb(225, 159, 60);
 }
 
+main button {
+    cursor: pointer;
+    font-size: 125px;
+    background-color: beige;
+}
+
 main .books-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
