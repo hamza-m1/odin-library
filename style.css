@@ -48,3 +48,8 @@ main .book-card, main .button-card {
 
     background-color: beige;
 }
+
+main .card-close-btn {
+    cursor: pointer;
+    padding: 7px 10px;
+}

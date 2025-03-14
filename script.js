@@ -11,26 +11,54 @@ function addBookToLibrary(name, author, pages, haveRead) {
     myLibrary.push(new Book(name, author, pages, haveRead))
 }
 
+
+
 // addBookToLibrary('duckling', 'James', 30, true)
 // addBookToLibrary('cat', 'Richard', 67, true)
-addBookToLibrary('frog on a log', 'Harper', 119, false)
+// addBookToLibrary('frog on a log', 'Harper', 119, false)
 
 const bookContainer = document.querySelector('.books-container')
+// const addBookBtn = document.getElementById('add-book-btn')
+const dialog = document.querySelector('dialog')
+const closeBtn = document.getElementById('close-btn')
+const confirmBtn = document.getElementById('confirm-btn')
+const form = document.getElementById('form')
+
+const allBookCards = document.querySelectorAll('[data-id]')
+const cardCloseBtns = document.querySelectorAll('[data-btn-id]')
 // const allBookCards = document.querySelectorAll('.book-card')
 
 function displayBooks() {
-    const allBookCards = document.querySelectorAll('.book-card')
-    myLibrary.map((item, index, array) => {
-        let check = false
-        for(let i=0; i<allBookCards.length; i++) {
-            if (allBookCards[i].firstChild.firstChild.data === item.name) {
-                check = true
-            }
-        }
+    // const allBookCards = document.querySelectorAll('.book-card')
+    bookContainer.innerHTML = ''
 
-        if (check === false) {
-            const newBookCard = document.createElement('div')
+    const addBookCard = document.createElement('div')
+    addBookCard.classList.add('button-card')
+    const addBookButton = document.createElement('button')
+    addBookButton.setAttribute('id', 'add-book-btn')
+    addBookButton.textContent = '+'
+    addBookCard.appendChild(addBookButton)
+    bookContainer.appendChild(addBookCard)
+
+
+    myLibrary.map((item, index, array) => {
+        // let check = false
+        // for(let i=0; i<allBookCards.length; i++) {
+        //     if (allBookCards[i].firstChild.firstChild.data === item.name) {
+        //         check = true
+        //     }
+        // }
+        // if (check === false) {
+        // }  
+        const newBookCard = document.createElement('div')
             newBookCard.classList.add('book-card', `${item.name.replace(/\s+/g, '-').toLowerCase()}`)
+            newBookCard.setAttribute('data-id', `${item.name}`)
+
+            const closeBtn = document.createElement('button')
+            closeBtn.classList.add('card-close-btn')
+            closeBtn.textContent = 'x'
+            closeBtn.setAttribute('data-btn-id', `${item.name}`)
+
 
             const name = document.createElement('p')
             name.classList.add('name')
@@ -48,26 +76,27 @@ function displayBooks() {
             haveRead.classList.add('have-read')
             haveRead.textContent = `Have read: ${item.haveRead}`
 
+            newBookCard.appendChild(closeBtn)
             newBookCard.appendChild(name)
             newBookCard.appendChild(author)
             newBookCard.appendChild(pages)
             newBookCard.appendChild(haveRead)
             bookContainer.appendChild(newBookCard)
-        }  
     })
-    console.log(allBookCards)
+    // let addBookBtn = document.getElementById('add-book-btn')
+    // console.log(allBookCards)
+    resetAddBookBtn()
 }
 
-const addBookBtn = document.getElementById('add-book-btn')
-const dialog = document.querySelector('dialog')
-const closeBtn = document.getElementById('close-btn')
-const confirmBtn = document.getElementById('confirm-btn')
-const form = document.getElementById('form')
+displayBooks()
 
+function resetAddBookBtn() {
+    const addBookBtn = document.getElementById('add-book-btn')
+    addBookBtn.addEventListener('click', () => {
+        dialog.showModal()
+    })
+}
 
-addBookBtn.addEventListener('click', () => {
-    dialog.showModal()
-})
 
 closeBtn.addEventListener('click', (e) => {
     const name = document.getElementById('name')
@@ -99,10 +128,16 @@ confirmBtn.addEventListener('click', (e) => {
     }
 })
 
+cardCloseBtns.forEach((item) => {
+    item.addEventListener('click', () => {
+
+    })
+})
+
 
 
 // console.log(myLibrary)
-displayBooks()
+// displayBooks()
 
 
 
