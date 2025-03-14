@@ -58,10 +58,10 @@ addBookBtn.addEventListener('click', () => {
     dialog.showModal()
 })
 
-closeBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-    dialog.close()
-})
+// closeBtn.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     dialog.close()
+// })
 
 confirmBtn.addEventListener('click', (e) => {
     const name = document.getElementById('name')
