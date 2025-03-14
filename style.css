@@ -39,7 +39,7 @@ main .books-container {
     background-color: azure;
 }
 
-main .book-card {
+main .book-card, main .button-card {
     display: flex;
     flex-direction: column;
     justify-content: center;

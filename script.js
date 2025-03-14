@@ -16,35 +16,46 @@ function addBookToLibrary(name, author, pages, haveRead) {
 addBookToLibrary('frog on a log', 'Harper', 119, false)
 
 const bookContainer = document.querySelector('.books-container')
+// const allBookCards = document.querySelectorAll('.book-card')
 
 function displayBooks() {
+    const allBookCards = document.querySelectorAll('.book-card')
     myLibrary.map((item, index, array) => {
-        const newBookCard = document.createElement('div')
-        newBookCard.classList.add('book-card', `${item.name.replace(/\s+/g, '-').toLowerCase()}`)
+        let check = false
+        for(let i=0; i<allBookCards.length; i++) {
+            if (allBookCards[i].firstChild.firstChild.data === item.name) {
+                check = true
+            }
+        }
 
-        const name = document.createElement('p')
-        name.classList.add('name')
-        name.textContent = `${item.name}`
+        if (check === false) {
+            const newBookCard = document.createElement('div')
+            newBookCard.classList.add('book-card', `${item.name.replace(/\s+/g, '-').toLowerCase()}`)
 
-        const author = document.createElement('p')
-        author.classList.add('author')
-        author.textContent = `${item.author}`
+            const name = document.createElement('p')
+            name.classList.add('name')
+            name.textContent = `${item.name}`
 
-        const pages = document.createElement('p')
-        pages.classList.add('pages')
-        pages.textContent = `${item.pages} pages`
+            const author = document.createElement('p')
+            author.classList.add('author')
+            author.textContent = `${item.author}`
 
-        const haveRead = document.createElement('p')
-        haveRead.classList.add('have-read')
-        haveRead.textContent = `Have read: ${item.haveRead}`
+            const pages = document.createElement('p')
+            pages.classList.add('pages')
+            pages.textContent = `${item.pages} pages`
 
-        newBookCard.appendChild(name)
-        newBookCard.appendChild(author)
-        newBookCard.appendChild(pages)
-        newBookCard.appendChild(haveRead)
-        bookContainer.appendChild(newBookCard)
-        // myLibrary.splice(index, 1)
+            const haveRead = document.createElement('p')
+            haveRead.classList.add('have-read')
+            haveRead.textContent = `Have read: ${item.haveRead}`
+
+            newBookCard.appendChild(name)
+            newBookCard.appendChild(author)
+            newBookCard.appendChild(pages)
+            newBookCard.appendChild(haveRead)
+            bookContainer.appendChild(newBookCard)
+        }  
     })
+    console.log(allBookCards)
 }
 
 const addBookBtn = document.getElementById('add-book-btn')
@@ -83,7 +94,7 @@ confirmBtn.addEventListener('click', (e) => {
         author.value = ''
         pages.value = ''
         dialog.close(formData)
-        console.log(dialog.returnValue)
+        // console.log(dialog.returnValue)
         displayBooks()
     }
 })
