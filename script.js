@@ -13,7 +13,7 @@ function addBookToLibrary(name, author, pages, haveRead) {
 
 // addBookToLibrary('duckling', 'James', 30, true)
 // addBookToLibrary('cat', 'Richard', 67, true)
-// addBookToLibrary('frog on a log', 'Harper', 119, false)
+addBookToLibrary('frog on a log', 'Harper', 119, false)
 
 const bookContainer = document.querySelector('.books-container')
 
@@ -58,10 +58,16 @@ addBookBtn.addEventListener('click', () => {
     dialog.showModal()
 })
 
-// closeBtn.addEventListener('click', (e) => {
-//     e.preventDefault()
-//     dialog.close()
-// })
+closeBtn.addEventListener('click', (e) => {
+    const name = document.getElementById('name')
+    const author = document.getElementById('author')
+    const pages = document.getElementById('pages')
+    dialog.close()
+    e.preventDefault()
+    name.value = ''
+    author.value = ''
+    pages.value = ''
+})
 
 confirmBtn.addEventListener('click', (e) => {
     const name = document.getElementById('name')
@@ -70,11 +76,11 @@ confirmBtn.addEventListener('click', (e) => {
     const haveRead = document.getElementById('have-read')
 
     if (name.value !== '' && author.value !== '' && pages.value !== '') {
-        const formData = [name.value, author.value, pages.value, haveRead.value]
         e.preventDefault()
+        const formData = [name.value, author.value, pages.value, haveRead.value]
+        addBookToLibrary(formData[0],formData[1],formData[2],formData[3])
         dialog.close(formData)
         console.log(dialog.returnValue)
-        addBookToLibrary(formData[0],formData[1],formData[2],formData[3])
         displayBooks()
     }
 })
