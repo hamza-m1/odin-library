@@ -11,16 +11,16 @@ function addBookToLibrary(name, author, pages, haveRead) {
     myLibrary.push(new Book(name, author, pages, haveRead))
 }
 
-addBookToLibrary('duckling', 'James', 30, true)
-addBookToLibrary('cat', 'Richard', 67, true)
-addBookToLibrary('frog on a log', 'Harper', 119, false)
+// addBookToLibrary('duckling', 'James', 30, true)
+// addBookToLibrary('cat', 'Richard', 67, true)
+// addBookToLibrary('frog on a log', 'Harper', 119, false)
 
 const bookContainer = document.querySelector('.books-container')
 
 function displayBooks() {
     myLibrary.map((item, index, array) => {
         const newBookCard = document.createElement('div')
-        newBookCard.classList.add('book-card')
+        newBookCard.classList.add('book-card', `${item.name.replace(/\s+/g, '-').toLowerCase()}`)
 
         const name = document.createElement('p')
         name.classList.add('name')
@@ -43,7 +43,7 @@ function displayBooks() {
         newBookCard.appendChild(pages)
         newBookCard.appendChild(haveRead)
         bookContainer.appendChild(newBookCard)
-        return item
+        // myLibrary.splice(index, 1)
     })
 }
 
@@ -70,16 +70,14 @@ confirmBtn.addEventListener('click', (e) => {
     const haveRead = document.getElementById('have-read')
 
     if (name.value !== '' && author.value !== '' && pages.value !== '') {
-        const formDataArray = [name.value, author.value, pages.value, haveRead.value]
+        const formData = [name.value, author.value, pages.value, haveRead.value]
         e.preventDefault()
-        dialog.close(formDataArray)
+        dialog.close(formData)
         console.log(dialog.returnValue)
+        addBookToLibrary(formData[0],formData[1],formData[2],formData[3])
+        displayBooks()
     }
 })
-
-// dialog.addEventListener('close', (e) => {
-//     addBookToLibrary()
-// })
 
 
 
