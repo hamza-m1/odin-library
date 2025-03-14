@@ -79,6 +79,9 @@ confirmBtn.addEventListener('click', (e) => {
         e.preventDefault()
         const formData = [name.value, author.value, pages.value, haveRead.value]
         addBookToLibrary(formData[0],formData[1],formData[2],formData[3])
+        name.value = ''
+        author.value = ''
+        pages.value = ''
         dialog.close(formData)
         console.log(dialog.returnValue)
         displayBooks()
