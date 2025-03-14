@@ -47,6 +47,41 @@ function displayBooks() {
     })
 }
 
+const addBookBtn = document.getElementById('add-book-btn')
+const dialog = document.querySelector('dialog')
+const closeBtn = document.getElementById('close-btn')
+const confirmBtn = document.getElementById('confirm-btn')
+const form = document.getElementById('form')
+
+
+addBookBtn.addEventListener('click', () => {
+    dialog.showModal()
+})
+
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    dialog.close()
+})
+
+confirmBtn.addEventListener('click', (e) => {
+    const name = document.getElementById('name')
+    const author = document.getElementById('author')
+    const pages = document.getElementById('pages')
+    const haveRead = document.getElementById('have-read')
+
+    if (name.value !== '' && author.value !== '' && pages.value !== '') {
+        const formDataArray = [name.value, author.value, pages.value, haveRead.value]
+        e.preventDefault()
+        dialog.close(formDataArray)
+        console.log(dialog.returnValue)
+    }
+})
+
+// dialog.addEventListener('close', (e) => {
+//     addBookToLibrary()
+// })
+
+
 
 // console.log(myLibrary)
 displayBooks()

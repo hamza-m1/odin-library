@@ -23,7 +23,7 @@ main {
     background-color: azure;
 }
 
-main button {
+main #add-book-btn {
     cursor: pointer;
     font-size: 125px;
     background-color: beige;
