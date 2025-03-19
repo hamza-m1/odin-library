@@ -5,6 +5,7 @@ function Book(name, author, pages, haveRead) {
     this.author = author
     this.pages = pages
     this.haveRead = haveRead
+    this.id = name
 }
 
 function addBookToLibrary(name, author, pages, haveRead) {
@@ -13,9 +14,9 @@ function addBookToLibrary(name, author, pages, haveRead) {
 
 
 
-// addBookToLibrary('duckling', 'James', 30, true)
-// addBookToLibrary('cat', 'Richard', 67, true)
-// addBookToLibrary('frog on a log', 'Harper', 119, false)
+addBookToLibrary('duckling', 'James', 30, true)
+addBookToLibrary('cat', 'Richard', 67, true)
+addBookToLibrary('frog on a log', 'Harper', 119, false)
 
 const bookContainer = document.querySelector('.books-container')
 // const addBookBtn = document.getElementById('add-book-btn')
@@ -24,8 +25,9 @@ const closeBtn = document.getElementById('close-btn')
 const confirmBtn = document.getElementById('confirm-btn')
 const form = document.getElementById('form')
 
-const allBookCards = document.querySelectorAll('[data-id]')
-const cardCloseBtns = document.querySelectorAll('[data-btn-id]')
+// const allBookCards = document.querySelectorAll('[data-id]')
+// const cardCloseBtns = document.querySelectorAll('[data-btn-id]')
+
 // const allBookCards = document.querySelectorAll('.book-card')
 
 function displayBooks() {
@@ -57,7 +59,7 @@ function displayBooks() {
             const closeBtn = document.createElement('button')
             closeBtn.classList.add('card-close-btn')
             closeBtn.textContent = 'x'
-            closeBtn.setAttribute('data-btn-id', `${item.name}`)
+            closeBtn.setAttribute('data-Btnid', `${item.name}`)
 
 
             const name = document.createElement('p')
@@ -86,15 +88,34 @@ function displayBooks() {
     // let addBookBtn = document.getElementById('add-book-btn')
     // console.log(allBookCards)
     resetAddBookBtn()
+    resetCardCloseBtn()
 }
 
 displayBooks()
+
+const allBookCards = document.querySelectorAll('[data-id]')
+const cardCloseBtns = document.querySelectorAll('[data-BtnId]')
 
 function resetAddBookBtn() {
     const addBookBtn = document.getElementById('add-book-btn')
     addBookBtn.addEventListener('click', () => {
         dialog.showModal()
     })
+}
+
+function resetCardCloseBtn() {
+    const cardCloseBtns = document.querySelectorAll('[data-BtnId]')
+    cardCloseBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        myLibrary.map((item, index, array) => {
+            if (item.id === btn.dataset.btnid) {
+                console.log(item.id)
+                myLibrary.splice(index, 1)
+            }
+        })
+        displayBooks()
+    })
+})
 }
 
 
@@ -128,11 +149,20 @@ confirmBtn.addEventListener('click', (e) => {
     }
 })
 
-cardCloseBtns.forEach((item) => {
-    item.addEventListener('click', () => {
+// cardCloseBtns.forEach((btn) => {
+//     btn.addEventListener('click', () => {
+//         // console.log(btn.dataset.btnid)
+//         myLibrary.map((item, index, array) => {
+//             if (item.id === btn.dataset.btnid) {
+//                 console.log(item.id)
+//                 myLibrary.splice(index, 1)
+//             }
+//         })
+//         displayBooks()
+//     })
+// })
 
-    })
-})
+// console.log(cardCloseBtns)
 
 
 
