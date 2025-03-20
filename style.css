@@ -40,14 +40,21 @@ main .books-container {
 }
 
 main .book-card, main .button-card {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 10px; */
+
+    display: grid;
+    /* grid-template-rows: 30px ; */
+    /* grid-template-columns: 90% 10%;
+    grid-template-rows: 20px 60px 60px 60px 50px; */
 
     background-color: beige;
 }
+
+
 
 main .card-close-btn {
     cursor: pointer;
