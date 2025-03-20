@@ -37,7 +37,7 @@ main #add-book-btn {
 
 main .books-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
     grid-auto-rows: 219px;
     gap: 20px 20px;
 
@@ -80,7 +80,8 @@ main .card-close-btn {
 .name,
 .author,
 .pages {
-    padding-left: 25px;
+    padding-left: 30px;
+    padding-right: 15px;
 }
 
 main .book-card .name {
