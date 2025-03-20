@@ -68,7 +68,7 @@ function displayBooks() {
 
             const author = document.createElement('p')
             author.classList.add('author')
-            author.textContent = `${item.author}`
+            author.textContent = `by ${item.author}`
 
             const pages = document.createElement('p')
             pages.classList.add('pages')
