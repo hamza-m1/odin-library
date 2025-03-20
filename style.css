@@ -32,14 +32,21 @@ main #add-book-btn {
 main .books-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: 200px;
+    grid-auto-rows: 220px;
     gap: 20px 20px;
 
     padding: 20px;
     background-color: azure;
 }
 
-main .book-card, main .button-card {
+main .button-card {
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .book-card {
     /* display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,13 +54,33 @@ main .book-card, main .button-card {
     gap: 10px; */
 
     display: grid;
-    /* grid-template-rows: 30px ; */
+    grid-template-rows: 30px 50px 50px 50px 40px;
+    /* grid-template-columns: 100%; */
+    /* justify-content: center; */
+    align-items: center;
+
+
     /* grid-template-columns: 90% 10%;
     grid-template-rows: 20px 60px 60px 60px 50px; */
 
     background-color: beige;
 }
 
+main .book-card .have-read {
+    background-color: rgb(180, 54, 54);
+    padding: 12px;
+    /* color: white; */
+}
+
+main .book-card .have-read[haveread='true'] {
+    background-color: rgb(54, 180, 66);
+    /* color: white; */
+    padding: 12px;
+}
+
+.name, .author, .pages {
+    padding-left: 25px;
+}
 
 
 main .card-close-btn {

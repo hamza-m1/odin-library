@@ -82,6 +82,7 @@ function displayBooks() {
                 haveRead.textContent = `not read`
             }
             haveRead.setAttribute('data-readbtnid', `${item.name}`)
+            haveRead.setAttribute('haveRead', `${item.haveRead}`)
 
             newBookCard.appendChild(closeBtn)
             newBookCard.appendChild(name)
@@ -125,7 +126,6 @@ function resetCardCloseBtn() {
 
 function resetHaveReadBtn() {
     const haveReadBtns = document.querySelectorAll('[data-readbtnid]')
-    // console.log(haveReadBtns)
     haveReadBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
             myLibrary.map((item, index, array) => {
