@@ -74,9 +74,14 @@ function displayBooks() {
             pages.classList.add('pages')
             pages.textContent = `${item.pages} pages`
 
-            const haveRead = document.createElement('p')
+            const haveRead = document.createElement('button')
             haveRead.classList.add('have-read')
-            haveRead.textContent = `Have read: ${item.haveRead}`
+            if (item.haveRead) {
+                haveRead.textContent = `read`
+            } else {
+                haveRead.textContent = `not read`
+            }
+            haveRead.setAttribute('data-readbtnid', `${item.name}`)
 
             newBookCard.appendChild(closeBtn)
             newBookCard.appendChild(name)
@@ -89,6 +94,7 @@ function displayBooks() {
     // console.log(allBookCards)
     resetAddBookBtn()
     resetCardCloseBtn()
+    resetHaveReadBtn()
 }
 
 displayBooks()
@@ -106,16 +112,30 @@ function resetAddBookBtn() {
 function resetCardCloseBtn() {
     const cardCloseBtns = document.querySelectorAll('[data-BtnId]')
     cardCloseBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        myLibrary.map((item, index, array) => {
-            if (item.id === btn.dataset.btnid) {
-                console.log(item.id)
-                myLibrary.splice(index, 1)
-            }
+        btn.addEventListener('click', () => {
+            myLibrary.map((item, index, array) => {
+                if (item.id === btn.dataset.btnid) {
+                    myLibrary.splice(index, 1)
+                }
+            })
+            displayBooks()
         })
-        displayBooks()
     })
-})
+}
+
+function resetHaveReadBtn() {
+    const haveReadBtns = document.querySelectorAll('[data-readbtnid]')
+    // console.log(haveReadBtns)
+    haveReadBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            myLibrary.map((item, index, array) => {
+                if (item.id === btn.dataset.readbtnid) {
+                    item.haveRead = !item.haveRead
+                }
+            })
+            displayBooks()
+        })
+    })
 }
 
 
