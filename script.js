@@ -15,9 +15,9 @@ function addBookToLibrary(name, author, pages, haveRead) {
     myLibrary.push(new Book(name, author, pages, haveRead))
 }
 
-addBookToLibrary('duckling', 'James', 30, true)
-addBookToLibrary('cat', 'Richard', 67, true)
-addBookToLibrary('frog on a log', 'Harper', 119, false)
+addBookToLibrary('The lord of the rings', 'J.R.R. Tolkien', 1178, true)
+addBookToLibrary(`Harry Potter and the Philosopher's Stone`, 'J. K. Rowling', 223, false)
+addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 336, true)
 
 const bookContainer = document.querySelector('.books-container')
 const dialog = document.querySelector('dialog')
