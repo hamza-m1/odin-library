@@ -42,7 +42,6 @@ main .books-container {
     gap: 20px 20px;
 
     padding: 20px;
-    /* background-color: azure; */
 }
 
 main .book-card, main .button-card {
@@ -90,4 +89,57 @@ main .book-card .name {
 
 main .book-card .author {
     font-style: italic;
+}
+
+dialog {
+    margin: auto auto;
+    padding: 30px 50px;
+    border-radius: 20px;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 250px;
+}
+
+dialog form div {
+    display: flex;
+    align-items: center;
+}
+
+dialog form label {
+    width: 75px;
+}
+
+dialog input {
+    width: 100%;
+}
+
+dialog input, dialog select {
+    background-color: var(--background-color);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+dialog input[type='submit'], dialog button {
+    background-color: var(--card-color);
+    padding: 10px;
+    border-radius: 10px;
+    width: auto;
+    cursor: pointer;
+}
+
+dialog input[type='submit'] {
+    margin-top: 20px;
+}
+
+dialog button {
+    margin-bottom: 20px;
+}
+
+dialog .form-button {
+    display: flex;
+    justify-content: center;
 }
