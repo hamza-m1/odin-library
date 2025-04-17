@@ -63,6 +63,7 @@ main .book-card {
 main .book-card .have-read {
     background-color: rgb(255, 158, 158);
     padding: 12px;
+    cursor: pointer;
 }
 
 main .book-card .have-read[haveread='true'] {
