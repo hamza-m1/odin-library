@@ -60,13 +60,13 @@ main .book-card {
     align-items: center;
 }
 
-main .book-card .have-read {
+main .book-card .have-read[haveread='no'] {
     background-color: rgb(255, 158, 158);
     padding: 12px;
     cursor: pointer;
 }
 
-main .book-card .have-read[haveread='true'] {
+main .book-card .have-read[haveread='yes'] {
     background-color: rgb(178, 217, 181);
     padding: 12px;
 }

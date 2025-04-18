@@ -15,9 +15,9 @@ function addBookToLibrary(name, author, pages, haveRead) {
     myLibrary.push(new Book(name, author, pages, haveRead))
 }
 
-addBookToLibrary('The lord of the rings', 'J.R.R. Tolkien', 1178, true)
-addBookToLibrary(`Harry Potter and the Philosopher's Stone`, 'J. K. Rowling', 223, false)
-addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 336, true)
+addBookToLibrary('The lord of the rings', 'J.R.R. Tolkien', 1178, 'yes')
+addBookToLibrary(`Harry Potter and the Philosopher's Stone`, 'J. K. Rowling', 223, 'no')
+addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 336, 'yes')
 
 const bookContainer = document.querySelector('.books-container')
 const dialog = document.querySelector('dialog')
@@ -61,7 +61,7 @@ function displayBooks() {
 
         const haveRead = document.createElement('button')
         haveRead.classList.add('have-read')
-        if (item.haveRead === true) {
+        if (item.haveRead === 'yes') {
             haveRead.textContent = `read`
         } else {
             haveRead.textContent = `not read`
@@ -111,7 +111,11 @@ function resetHaveReadBtn() {
         btn.addEventListener('click', () => {
             myLibrary.map((item, index, array) => {
                 if (item.id === btn.dataset.readbtnid) {
-                    item.haveRead = !item.haveRead
+                    if (item.haveRead === 'yes') {
+                        item.haveRead = 'no'
+                    } else if (item.haveRead === 'no') {
+                        item.haveRead = 'yes'
+                    }
                 }
             })
             displayBooks()
