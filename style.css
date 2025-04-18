@@ -146,3 +146,7 @@ dialog .form-button {
     display: flex;
     justify-content: center;
 }
+
+dialog::backdrop {
+    backdrop-filter: blur(1px);
+}
