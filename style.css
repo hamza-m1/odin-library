@@ -134,10 +134,12 @@ dialog input[type='submit'], dialog button {
 
 dialog input[type='submit'] {
     margin-top: 20px;
+    background-color: rgb(178, 217, 181);
 }
 
 dialog button {
     margin-bottom: 20px;
+    background-color: rgb(255, 158, 158);
 }
 
 dialog .form-button {
