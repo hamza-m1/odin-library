@@ -61,7 +61,7 @@ function displayBooks() {
 
         const haveRead = document.createElement('button')
         haveRead.classList.add('have-read')
-        if (item.haveRead) {
+        if (item.haveRead === true) {
             haveRead.textContent = `read`
         } else {
             haveRead.textContent = `not read`
