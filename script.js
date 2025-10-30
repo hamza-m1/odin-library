@@ -1,16 +1,5 @@
 const myLibrary = [];
 
-// function Book(name, author, pages, haveRead) {
-//   if (!new.target) {
-//     throw Error("You must use the 'new' operator to call the constructor");
-//   }
-//   this.name = name;
-//   this.author = author;
-//   this.pages = pages;
-//   this.haveRead = haveRead;
-//   this.id = name;
-// }
-
 class Books {
   constructor(name, author, pages, haveRead) {
     this.name = name;
@@ -22,7 +11,6 @@ class Books {
 }
 
 function addBookToLibrary(name, author, pages, haveRead) {
-  //   myLibrary.push(new Book(name, author, pages, haveRead));
   myLibrary.push(new Books(name, author, pages, haveRead));
 }
 
