@@ -1,17 +1,17 @@
 const myLibrary = [];
 
-function Book(name, author, pages, haveRead) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
-  }
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.haveRead = haveRead;
-  this.id = name;
-}
+// function Book(name, author, pages, haveRead) {
+//   if (!new.target) {
+//     throw Error("You must use the 'new' operator to call the constructor");
+//   }
+//   this.name = name;
+//   this.author = author;
+//   this.pages = pages;
+//   this.haveRead = haveRead;
+//   this.id = name;
+// }
 
-class Book {
+class Books {
   constructor(name, author, pages, haveRead) {
     this.name = name;
     this.author = author;
@@ -22,7 +22,8 @@ class Book {
 }
 
 function addBookToLibrary(name, author, pages, haveRead) {
-  myLibrary.push(new Book(name, author, pages, haveRead));
+  //   myLibrary.push(new Book(name, author, pages, haveRead));
+  myLibrary.push(new Books(name, author, pages, haveRead));
 }
 
 addBookToLibrary("The lord of the rings", "J.R.R. Tolkien", 1178, "yes");
